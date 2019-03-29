@@ -9,3 +9,11 @@ export function addWord(en, vn){
         vn
     }
 };
+
+export function toggleMemorized(id){
+    return { type: 'TOGGLE_MEMORIZED', id }
+};
+
+export function toggleShow(id){
+    return { type: 'TOGGLE_SHOW', id }
+};
