@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import { showAll, showMemorized, showNeedPracitice } from '../redux/actionCreators'
 
 class Filter extends Component {
 
@@ -18,13 +19,13 @@ class Filter extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <TouchableOpacity onPress={() => this.setFilterStatus('FILTER_SHOW_ALL')}>
+                <TouchableOpacity onPress={() => this.props.showAll()}>
                     <Text style={this.getTextStyle('SHOW_ALL')}>SHOW ALL</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.setFilterStatus('FILTER_MEMORIZED')}>
+                <TouchableOpacity onPress={() => this.props.showMemorized()}>
                     <Text style={this.getTextStyle('MEMORIZED')}>MEMORIZED</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.setFilterStatus('FILTER_NEED_PRACTICE')}>
+                <TouchableOpacity onPress={() => this.props.showNeedPracitice()}>
                     <Text style={this.getTextStyle('NEED_PRACTICE')}>NEED PRACTICE</Text>
                 </TouchableOpacity>
             </View>
@@ -38,7 +39,9 @@ function mapStateToProps(state){
     };
 }
 
-export default connect(mapStateToProps)(Filter);
+export default connect(mapStateToProps, {
+    showAll, showMemorized, showNeedPracitice
+})(Filter);
 
 const styles = StyleSheet.create({
     container:{
