@@ -12,10 +12,6 @@ class Filter extends Component {
         return styles.buttonText;
     }
 
-    setFilterStatus(actionType){
-        this.props.dispatch({ type: actionType })
-    }
-
     render() {
         return(
             <View style={styles.container}>
