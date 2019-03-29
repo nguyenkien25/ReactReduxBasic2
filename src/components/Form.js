@@ -19,6 +19,9 @@ class Form extends Component {
             en,
             vn
         });
+        this.props.dispatch({
+            type: 'TOGGLE_IS_ADDING'
+        });
     }
 
     render() {
